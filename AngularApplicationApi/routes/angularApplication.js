@@ -1,3 +1,5 @@
+
+const db = require('../db/db');
 const router = require("express").Router();
 
 router.get('/',(req,res,next)=>{

@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "express": "^4.19.2",
     "nodemon": "^3.1.2",
     "rxdb": "^15.23.0",
