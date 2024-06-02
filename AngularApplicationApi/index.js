@@ -6,7 +6,7 @@ const router = express.Router();
 
 const ports = 3000;
 
-router.use('/angularApplication',require('./routes/angularApplication'));
+router.use('/dronetag',require('./routes/droneTag'));
 
 app.use('/api',router);
 

@@ -3,14 +3,14 @@
 
 require('babel-polyfill');
 
-const database = {};
+const Database = {};
 
 const { createRxDatabase,
     addRxPlugin } = require('../node_modules/rxdb');
 
 const { RxDBDevModePlugin } = require('../node_modules/rxdb/plugins/dev-mode');
 
-const { getRxStorageDexie } = require('../node_modules/rxdb/plugins/storage-dexie');
+const { getRxStorageMemory } = require('../node_modules/rxdb/plugins/storage-memory');
 
 addRxPlugin(RxDBDevModePlugin);
 
@@ -107,22 +107,24 @@ const create = async () => {
 
     const database = await createRxDatabase({
         name: 'angularapplicationapidb',
-        storage: getRxStorageDexie()
+        storage: getRxStorageMemory()
     });
 
     await database.addCollections({
-        'PositionReports': {
-            'schema': positionReportSchema
+        positionreport: {
+            schema: positionReportSchema
         }
     });
+
+    return database;
 };
 
-let databasePromise;
-database.get = async () => {
+let databasePromise=null;
+Database.get = async () => {
     if (!databasePromise) {
         databasePromise = create();
     }
     return databasePromise;
 };
 
-module.exports = database;
+module.exports = Database;
