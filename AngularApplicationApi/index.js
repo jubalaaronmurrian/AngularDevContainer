@@ -8,7 +8,8 @@ const ports = 3000;
 
 router.use('/dronetag',require('./routes/droneTag'));
 
-app.use(express.json());
+app.use(express.json({strict:false}));
+app.use(express.urlencoded({extended: true}));
 app.use('/api',router);
 
 let server = app.listen(ports,function(){
