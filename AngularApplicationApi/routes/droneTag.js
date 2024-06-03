@@ -10,7 +10,9 @@ router.get('/positionreport/:id',async (req,res,next)=>{
 
 router.post('/positionreport',async (req,res,next)=>{
     const database = await db.get();
-    await database.patch(req.body);
+    const json = req.body;
+    await database.positionreport.insert(json);
+    res.status(201).json(json);
 });
 
 module.exports = router;
