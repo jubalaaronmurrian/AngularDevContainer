@@ -22,8 +22,9 @@ const positionReportSchema = {
     type: 'object',
     properties: {
         "id": {
-            type: 'number',
-            primary: true
+            type: 'string',
+            primary: true,
+            maxLength: 100
         },
         "time": {
             type: 'string',
