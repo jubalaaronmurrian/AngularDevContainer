@@ -1,0 +1,14 @@
+@for(positionreport of positionreports; track positionreport.id){
+
+    <div>
+        <div><b>Flight ID: </b><span>{{positionreport.flightId}}</span></div>
+        <div><b>UAS ID: </b><span>{{positionreport.uasId}}</span></div>
+        <div><b>Flight Time: </b><span>{{positionreport.time | date:'short'}}</span></div>
+        <div><b>Latitude: </b><span>{{positionreport.latitude}}</span></div>
+        <div><b>Longitude: </b><span>{{positionreport.longitude}}</span></div>
+        <div><b>Height: </b><span>{{positionreport.height}}</span></div>
+        <div><b>Pressure: </b><span>{{positionreport.pressure}}</span></div>
+    </div>
+    <div>&nbsp;</div>
+
+}
